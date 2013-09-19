@@ -1,0 +1,11 @@
+{% extends "base.html"%}
+{% block content %}
+<form action="/prelab_quiz/{{ quiz_id }}/" method="post">
+{% csrf_token %}
+{% for field in form %}
+<li><b> {{ field.label }} </b></li>
+<ul> {{ field }} </ul>
+{% endfor %}
+<input type="submit" value="Submit" />
+</form>
+{% endblock%}

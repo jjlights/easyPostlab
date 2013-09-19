@@ -1,0 +1,20 @@
+div.content-dispq {
+    border-style:groove;
+    border-color:#98bf21;
+}
+div.content-dispq-comment {
+    background:#98bf21;
+}
+div.content-dispq-body {
+}
+div.message {
+}
+div.content-input {
+    border-style:groove;
+    border-color:#FF9900;
+}
+div.content-input-comment {
+    background:#FF9900;
+}
+div.content-input-body {
+}

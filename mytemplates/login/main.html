@@ -1,0 +1,12 @@
+{% extends "base.html" %} 
+{% block content %}
+<div class="navi_main">
+<ul>
+{% for item in items %}
+<li><a href="/{{ item.name }}/">{{ item.dispname }}</a></li>
+{% endfor %}
+</ul>
+</div>
+<div class="right_container">
+    <p> {{ greet }} {{ user.username }}! </p>
+{% endblock %}

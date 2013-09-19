@@ -1,0 +1,32 @@
+{% if type == 0 %}
+<p> Congratulation! You got {{ correct }} out of {{ total }} correct </br>
+Now you can get back to the prelab list page </p>
+<form action="/prelab_quiz/" method="get">
+<input type="submit" value="Return" />
+</form>
+{% elif type == 1 %}
+<p> Sorry. You only got {{ correct }} out of {{ total }} correct </br>
+You only have <b> ONE </b> more chance to get credit. </br>
+You can either try again now or go back and attempt it later </p>
+<form action="/prelab_quiz/{{ quiz_id }}/" method="get">
+<input type="submit" value="Try again now!" />
+</form>
+<form action="/prelab_quiz/" method="get">
+<input type="submit" value="Try it later..." />
+</form>
+{% elif type == 2 %}
+<p> Sorry. You only got {{ correct }} out of {{ total }} correct the second time </br>
+You have used up all your chances and don't get credit</br>
+Please remember to take a paper quiz at the beginning of lab </br>
+Now you can go back to the prelab quiz list page </p>
+<form action="/prelab_quiz/" method="get">
+<input type="submit" value="Return" />
+{% else %}
+<p> You have already taken this quiz <br>
+Now you can go back to the prelab quiz list page </p>
+<form action="/prelab_quiz/" method="get">
+<input type="submit" value="Return" />
+{% endif %}
+</form>
+
+

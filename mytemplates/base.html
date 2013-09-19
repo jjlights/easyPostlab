@@ -1,0 +1,143 @@
+<style type="text/css">
+	body {
+		background:#dddddd;
+	}
+	#headcontent ul {
+		margin:10px;
+		padding:5px;
+		border:0px;
+		list-style-type:none;
+	}
+	#headcontent ul li {
+		display: inline;
+		width:500px;
+	}
+	#headcontent ul li a {
+		color:#000000;
+		text-decoration:none;
+		padding-right: 20em;
+	}
+	#headcontent ul li a:hover {
+		color:#0099cc;
+	}
+	#headcontent ul li a h1 {
+		color:#0099cc;
+		width:800px;
+		display:inline;
+	}
+	.navi_main ul {
+		padding:0px;
+		border:0px;
+		margin:0px 10px;
+		border:0px;
+		list-style-type:none;
+		height:25px;
+	}
+	.navi_main ul li {
+		float:left;
+		margin: 0px;
+		padding: 0px;
+		border: 0px;
+		background:#cccccc;
+	}
+	.navi_main ul li a {
+		display:block;
+		text-decoration:none;
+		margin:0px;
+		padding:0.2em 0.5em;
+		/*line-height:25px;*/
+		color:#000000;
+		border:0px;
+		/*border-right: 2px solid #535353;*/
+	}
+	.navi_main ul li a:hover, .navi_main ul li.active a {
+		background:#d5d5d5;
+		color:#0099cc;
+	}
+	/*
+	.navi_list ul {
+		padding:5px;
+		margin:0px 10px;
+		border:0px;
+		height:25px;
+		list-style-type:none;
+		background:#cccccc;
+	}
+	*/
+	.navi_list ul li {
+		float:left;
+		height:25px;
+		margin: 0px;
+		padding: 0px;
+		border: 0px;
+		width: 400px;
+		list-style-type:none;
+	}
+	.navi_list ul li a {
+		display:block;
+		text-decoration:none;
+		margin:0px;
+		padding:0px 10px;
+		line-height:25px;
+		color:#000000;
+		border:0px;
+		border-left: 2px solid #535353;
+	/*	border-right: 2px solid #535353;*/
+	}
+	.navi_list ul li a:hover, .navi_list ul li.active a {
+		background:#d5d5d5;
+		color:#0099cc;
+	}
+	.navi_list ul ul a {
+		text-decoration:none;
+		color:#000000;
+	}
+
+	.ques_list ul {
+		width:900px;
+	}
+	.ques_list ul li {
+		float:left;
+		width:600px;
+		height:25px;
+		margin: 0px;
+		padding: 0px;
+		border: 0px;
+		width: 400px;
+		list-style-type:none;
+	}
+	.ques_list ul li a {
+		/*display:block;*/
+		text-decoration:none;
+		margin:0px;
+		padding:0px 10px;
+		line-height:25px;
+		color:#000000;
+		border:0px;
+		border-left: 2px solid #535353;
+	/*	border-right: 2px solid #535353;*/
+	}
+	.ques_list ul li a:hover, .navi_list ul li.active a {
+		background:#d5d5d5;
+		color:#0099cc;
+	}
+	.ques_list ul ul {
+		float:left;
+	}
+	.ques_list ul ul a {
+		text-decoration:none;
+		color:#000000;
+	}
+</style>
+<body>
+<div id="headcontent">
+<ul>
+	<li><a href="#"> <h1>Welcome to {{ offering }}</h1> </a></li>
+    <li><a href="/login/">Logout</a></li>
+</ul>
+</div>
+{% block title %}{% endblock %}
+{% block content %}{% endblock %}
+<div class="footer">
+</div>
+</body>

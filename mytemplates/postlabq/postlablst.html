@@ -1,0 +1,15 @@
+{% extends "base.html" %} 
+{% block content %}
+<h1>{{ offering }} </h1>
+<div class="navi_list">
+<ul>
+{% for item in lst %}
+    {% if type == 0  %} 
+        <li> {{ item.title }}
+    {% else %}
+    <li><a href="/postlab_quiz/{{ item.id }}">{{ item.title }}</a></li>
+    {% endif %}
+{% endfor %}
+</ul>
+</div>
+{% endblock %}

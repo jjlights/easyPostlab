@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<!--<h1>{{ offering }} </h1> --!>
+<div class="navi_list">
+<ul>
+{% for item in lst %}
+    {% if type == 0  %} 
+        <li> {{ item.quizName }}
+    {% elif type == 1 %}
+        {% if item.quizName == lst.0.quizName %} 
+        <li><a href="/prelab_quiz/{{ item.id }}">{{ item.quizName }}</a></li>
+        {% else %}
+        <li> {{ item.quizName }}
+        {% endif %}
+    {% else %}
+    <li><a href="/prelab_quiz/{{ item.id }}">{{ item.quizName }}</a></li>
+    {% endif %}
+{% endfor %}
+</ul>
+</div>
+{% endblock %}

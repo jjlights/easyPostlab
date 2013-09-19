@@ -1,0 +1,17 @@
+<h1>Welcome to Chemistry 2A</h1>
+<form action="/login/" method="post">
+{% csrf_token %}
+{% if form.errors %}<p> Please provide authenticated username and password! </p> {% endif %}
+<div class="register_div">
+    {% if form.username.errors %}<p class="error">{{ form.username.errors }}</p> {% endif %}
+    <p><label for=id_username">Username:</label></p>
+    <p>{{ form.username}} </p>
+</div>
+
+<div class="register_div">
+    {% if form.password.errors %}<p class="error">{{ form.password.errors }}</p> {% endif %}
+    <p><label for=id_password">Password:</label></p>
+    <p>{{ form.password}} </p>
+</div>
+<input type="submit" value="Log In" />
+</form>

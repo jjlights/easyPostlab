@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="{{STATIC_URL}}style.css" type="text/css" media="screen" />
+<div id="content-input" >
+    <div id="content-input-body">
+        <form action="/edit/{{ quiz_id }}/" method="post">
+	<input readonly="readonly">
+        {% csrf_token %}
+        <li><b> {{ question.0 }}. {{ question.1 }} </b></li>
+        {% for field in form %}
+        <ul><h4> {{ field.label }} {{ field }} </h4></ul>
+        {% endfor %}
+        <input type="submit" value="Submit" />
+        </form>
+    </div>
+</div>
+<!<div id="message" style="border-style:groove">
+<div id="message">
+    <p>{{ message }}</p>
+</div>

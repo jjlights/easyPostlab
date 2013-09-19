@@ -1,0 +1,128 @@
+{% extends "base.html" %} 
+{% block content %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{{STATIC_URL}}postlabq.css" type="text/css" media="screen" />
+<style type="text/css">
+	body {
+		background:#dddddd;
+	}
+	.content-dispq {
+		border:2px solid #00cc00;
+		margin:0px;
+		padding:0px;
+		height: auto;
+		/*
+		background:#99ff66;
+		border-style:groove; 
+		*/
+	}
+	.content-dispq p {
+		margin:0px;
+		padding:0px;
+		border:0px;
+		background:#99ff99;
+	}
+	.content-dispq-body {
+		margin:5px 5px;
+		padding:1px;
+		border:0px;
+		background:none; /* #98ff66;*/
+		height:200px;
+		overflow:auto;
+	}
+	.content-dispq-body li {
+		background:#99ff99;
+		padding:0px;
+	}
+	.content-dispq-body-ans {
+		border:1px solid #99ff99;
+		margin: 5px 0px;
+		padding:0px;
+		background:none;
+		height:auto;
+	}
+	.content-dispq-body-ans p {
+		border:0px;
+		margin:0px;
+		padding:0px;
+	}
+	.content-dispq-body-ans ul {
+		background:none;
+		padding:10px;
+		margin:5px;
+		border:0px;
+		display:block;
+	}
+	.content-dispq-body-ans ul h5 {
+		padding:0px;
+		margin:0px;
+		border:0px;
+		background:#99ff66;
+	}
+	.content-input {
+		margin:10px 0px;
+		padding:0px;
+		border:2px solid #0099cc;
+		height: auto;
+	}
+	.content-input-comment p {
+		border:0px;
+		padding:0px;
+		margin:0px 0px;
+		background: #99ffff;
+	}
+	.content-input-body {
+		margin:5px;
+		background:#99ffff; /*#ffcc00;*/
+	}
+	.content-input-body ul {
+		background:none;
+	}
+	.message {
+		border:2px solid #ff9966;
+		background:#ffcc66;
+	}
+	.message p {
+	}
+</style>
+<body>
+<div class="content-dispq">
+<!    <div class="content-dispq-comment" >
+        <p><b> Your previous questions results are displayed below for your reference </b> </p>
+<!	</div>
+    <div class="content-dispq-body">
+    {% for item in dispq %}
+    <li><b> {{item.0 }}. {{ item.1 }}</b></li>
+    <div class="content-dispq-body-ans">
+    	<p> <h5> Your Answer Is: </h5> <p>
+        {% for ans in item.2 %}
+	<ul><h5> {{ans.0}} -- {{ans.1}} </h5></ul>
+        {% endfor %}
+</div>
+    {% endfor %}
+    </div>
+</div>
+<div class="content-input" >
+    <div class="content-input-comment" >
+        <p><b> Question that you are working on... </b></p>
+    </div>
+    <div class="content-input-body">
+        <form action="/postlab_quiz/{{ quiz_id }}/" method="post">
+        {% csrf_token %}
+        <li><b> {{ question.0 }}. {{ question.1 }} </b></li>
+	{% if tp == 0 %}
+        	<input type="submit" value="Continue" />
+	{% else %}
+        {% for field in form %}
+	<ul><h4> {{ field.label }} {{ field }} </h4></ul>
+        {% endfor %}
+        <input type="submit" value="Submit" />
+	{% endif %}
+        </form>
+    </div>
+</div>
+<div class="message" style="border-style:groove">
+	<p> <b>{{ message }}</b></p>
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<! <style media="screen" type="text/css">
+<! 	#nav li {
+<! 		padding: 0;
+<! 		margin: 0;
+<! 		list-style:none;
+<! 	}
+<! 	#nav a {
+<! 		display: block;
+<! 	}
+<! 	#nav li ul {
+<! 		display: none;
+<! 		float: left;
+<! 		left: -999em;
+<! 	}
+<! 	#nav li:hover ul {
+<! 		display: block;
+<! 		left: auto;
+<! 	}
+<! </style> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#root ul').each(function() {$(this).css('display', 'none');});
+		$('#root .category').click(function() {
+			var childid="#"+$(this).attr("childid");
+			if ($(childid).css("display")=="none") { $(childid).css("display","block"); }
+			else { $(childid).css("display","none");}
+			if ($(this).hasClass("cat_close")) {$(this).removeClass("cat_close").addClass("cat_open");}
+			else {$(this).removeClass("cat_open").addClass("cat_close");}
+		});
+	});
+</script>
+
+<div class="ques_list" >
+	<ul id="root" class="ques_list">
+		{% for form in forms %}
+		<li>
+		<!-- <a href='javascript:void(0);' childid='c_id' class='cat_close category'>&nbsp;</a> --!>
+		<a href='javascript:void(0);' childid='{{forloop.counter}}' class='cat_close category'> Question-{{forloop.counter}}</a>
+		</li>
+		<ul id='{{forloop.counter}}'>
+<form id='{{forloop.counter}}' action='' method='POST'>
+{%csrf_token %}
+			<a href='javascript:void(0);' class='product'>{{form.as_p }}</a>
+<input type="submit" value="Save" />
+</form>
+		</ul>
+		{% endfor %}
+	</ul>
+</div>
+{% endblock %}
