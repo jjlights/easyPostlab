@@ -1,3 +1,4 @@
+## Outline
 <p>This side project provides a prototype of an online interface for students' to complete postlab homework and evaluate their results using Django web framework and MySQL with postlab contents initially in xls format. </p>
 <p>So far, the functionalities provided are users' login and sample prelab and postlab interactions and evaluations.</p>
 
